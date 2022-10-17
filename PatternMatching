@@ -1,0 +1,93 @@
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+class TrieNode{
+
+	char data;
+	boolean isTerminating;
+	TrieNode children[];
+	int childCount;
+
+	public TrieNode(char data) {
+		this.data = data;
+		isTerminating = false;
+		children = new TrieNode[26];
+		childCount = 0;
+	}
+}
+
+
+public class Trie {
+
+	private TrieNode root;
+	public int count;
+	public Trie() {
+		root = new TrieNode('\0');
+	}
+
+	public boolean search(String word){
+		return search(root, word);
+	}
+
+	private boolean search(TrieNode root, String word) {
+		if(word.length() == 0){
+			return true;
+		}
+		int childIndex = word.charAt(0) - 'a';
+		TrieNode child = root.children[childIndex];
+		if(child == null){
+			return false;
+		}
+		return search(child, word.substring(1));
+	}
+
+    private void insert(TrieNode root, String word) {
+        if (word.length()==0) {
+            return;
+        }
+        int childIndex = word.charAt(0) - 'a';
+        TrieNode child = root.children[childIndex];
+        if (child==null) {
+        	child = new TrieNode(word.charAt(0));
+            root.children[childIndex] = child;
+            root.childCount++;
+        }
+        insert(child, word.substring(1));
+    }
+    
+    public void add(String word) {
+        insert(root, word);
+    }
+ 
+	public boolean patternMatching(ArrayList<String> vect, String pattern) {
+        Trie suffixTrie = new Trie();
+    	for (int i=0; i<vect.size(); i++) {
+            String str = vect.get(i);
+            for (int j=0; j<str.length(); j++) {
+                suffixTrie.add(str.substring(j));
+            }
+        }
+        return suffixTrie.search(pattern);
+	}
+
+}
+public class Runner {
+
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    
+	
+	public static void main(String[] args) throws IOException{
+		Trie t = new Trie();
+		int n = Integer.parseInt(br.readLine().trim());
+        ArrayList<String> input = new ArrayList<String>();
+        String[] words = br.readLine().split("\\s");
+		for(int i = 0; i < n; i++) {
+			
+			input.add(words[i]);
+		}
+		String pattern = br.readLine();
+		System.out.println(t.patternMatching(input, pattern));
+	}
+}
