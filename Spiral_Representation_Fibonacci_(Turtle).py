@@ -44,6 +44,8 @@ def fiboPlot(n):
 	x.penup()
 	x.setposition(factor, 0)
 	x.seth(0)
+	x.speed(1000)
+	x.pendown()
 
 	# Setting the colour of the plotting pen to red
 	x.pencolor("red")
