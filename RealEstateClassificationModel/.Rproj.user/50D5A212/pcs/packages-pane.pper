@@ -1,0 +1,7 @@
+{
+    "installOptions": {
+        "installFromRepository": true,
+        "libraryPath": "C:/Users/rohit/OneDrive/Documents/R/win-library/4.1",
+        "installDependencies": true
+    }
+}

@@ -1,0 +1,1 @@
+A Machine Learning project made for classifing that the house will be sold or not
