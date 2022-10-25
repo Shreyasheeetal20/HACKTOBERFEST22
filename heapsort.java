@@ -1,8 +1,6 @@
 // Java program for implementation of Heap Sort
-//made change in heapsort
 
-
-public class heapsort {
+public class HeapSort {
 	public void sort(int arr[])
 	{
 		int N = arr.length;
@@ -67,7 +65,7 @@ public class heapsort {
 		int N = arr.length;
 
 		// Function call
-		heapsort ob = new heapsort();
+		HeapSort ob = new HeapSort();
 		ob.sort(arr);
 
 		System.out.println("Sorted array is");
