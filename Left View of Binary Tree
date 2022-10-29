@@ -1,0 +1,24 @@
+//Function to return a list containing elements of left view of the binary tree.
+vector<int> leftView(Node *root)
+{
+   vector<int> ans;
+   if(root==NULL){return ans;}
+   Node *tmp=root; int lev=0;
+   ans.push_back(root->data); lev=1;
+   queue<pair<Node*,int>> q;
+   q.push({root,0});
+   while(!q.empty()){
+       pair<Node*,int> top=q.front(); q.pop();
+      Node *cur=top.first;
+      int curlev=top.second;
+       if(cur->left!=NULL){
+           q.push({cur->left,curlev+1});
+           if(lev==curlev+1){ans.push_back(cur->left->data); lev++;}
+       }
+       if(cur->right!=NULL){
+           q.push({cur->right,curlev+1});
+           if(lev==curlev+1){ans.push_back(cur->right->data); lev++;}
+       }
+   }
+   return ans;
+}
