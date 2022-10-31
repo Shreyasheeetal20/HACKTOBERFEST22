@@ -11,8 +11,6 @@ def power(x, y):
 
 
 def order(x):
-
-	
 	n = 0
 	while (x != 0):
 		n = n + 1
@@ -22,7 +20,6 @@ def order(x):
 
 
 def isArmstrong(x):
-	
 	n = order(x)
 	temp = x
 	sum1 = 0
