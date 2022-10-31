@@ -1,0 +1,46 @@
+@import url("/node_modules/bootstrap/dist/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap");
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: white;
+}
+:root {
+  --bgColor: #ffffff;
+  --borderColor: rgb(16, 115, 154);
+}
+
+.container-fluid {
+  height: 100vh;
+}
+
+.quiz-card {
+  background-color: var(--bgColor);
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.button {
+  color: black;
+  border: solid 3px black;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.button:hover {
+  color: white;
+  border: solid 3px white;
+  background-color: black;
+}
+
+h6 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.questionNumber {
+  font-size: 1.5rem;
+}
+
+.fullButton {
+  width: 100%;
+}
